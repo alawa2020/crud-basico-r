@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import uniqid from 'uniqid'
 
 const Formulario = () => {
     /* ESTADOS */
@@ -8,7 +9,11 @@ const Formulario = () => {
     /* FUNCIONES */
     const addNombre = (e) =>{
         e.preventDefault()
-        setListaNombres([...listaNombres,nombre])
+        const nuevoNombre = {
+          id:uniqid(),
+          nNombre:nombre
+        }
+        setListaNombres([...listaNombres,nuevoNombre])
     }
   return (
     <div className="container">
@@ -23,7 +28,7 @@ const Formulario = () => {
           <ul className="list-group">
               {
                   listaNombres.map(el=>
-                      <li key={el} className="list-group-item">{el}</li>
+                      <li key={el.id} className="list-group-item">{el.nNombre}</li>
                   )
               }
           </ul>
