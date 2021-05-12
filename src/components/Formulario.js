@@ -15,6 +15,11 @@ const Formulario = () => {
         }
         setListaNombres([...listaNombres,nuevoNombre])
     }
+    const borrarNombre = (id)=>{
+      const nuevaLista = listaNombres.filter(item=>item.id !=id)
+      setListaNombres(nuevaLista)
+    }
+
   return (
     <div className="container">
       <h1>CRUD BÁSICO</h1>
@@ -28,7 +33,12 @@ const Formulario = () => {
           <ul className="list-group">
               {
                   listaNombres.map(el=>
-                      <li key={el.id} className="list-group-item">{el.nNombre}</li>
+                      <li key={el.id} className="list-group-item">{el.nNombre}
+                      <button 
+                      className="btn btn-danger"
+                      onClick={()=>borrarNombre(el.id)}
+                      >Borrar</button>
+                      </li>
                   )
               }
           </ul>
