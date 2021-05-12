@@ -1,6 +1,15 @@
 import React, { useState } from "react";
 
 const Formulario = () => {
+    /* ESTADOS */
+    const [nombre,setNombre] = useState("")
+    const [listaNombres,setListaNombres] = useState([])
+
+    /* FUNCIONES */
+    const addNombre = (e) =>{
+        e.preventDefault()
+        setListaNombres([...listaNombres,nombre])
+    }
   return (
     <div className="container">
       <h1>CRUD BÁSICO</h1>
@@ -16,12 +25,18 @@ const Formulario = () => {
         <div className="col">
           <h2>Formulario para añadir nombres</h2>
 
+
           {/* formulario */}
-          <form>
+          <form onSubmit={addNombre}>
             <div>
-              <input className="form-control" type="text" />
+              <input 
+              className="form-control" 
+              type="text" 
+              onChange = {(e)=>setNombre(e.target.value)}
+              />
             </div>
-            <button className="btn btn-primary">Registrar</button>
+            <button 
+            className="btn btn-primary">Registrar</button>
           </form>
         </div>
       </div>
