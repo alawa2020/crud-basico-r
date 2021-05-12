@@ -14,6 +14,7 @@ const Formulario = () => {
           nNombre:nombre
         }
         setListaNombres([...listaNombres,nuevoNombre])
+        setNombre('')
     }
     const borrarNombre = (id)=>{
       const nuevaLista = listaNombres.filter(item=>item.id !=id)
@@ -53,8 +54,10 @@ const Formulario = () => {
           <form onSubmit={addNombre}>
             <div>
               <input 
-              className="form-control" 
+              className="form-control mb-2" 
               type="text" 
+              placeholder="Introduce un nombre"
+              value={nombre}
               onChange = {(e)=>setNombre(e.target.value)}
               />
             </div>
