@@ -16,9 +16,17 @@ const Formulario = () => {
 
       {/* CREA LOS CONTENEDORES */}
       <div className="row">
+
         {/* VISTA */}
         <div className="col">
           <h2>Lista de Usuarios</h2>
+          <ul className="list-group">
+              {
+                  listaNombres.map(el=>
+                      <li key={el} className="list-group-item">{el}</li>
+                  )
+              }
+          </ul>
         </div>
 
         {/* AGREGANDO A LOS USUARIOS */}
